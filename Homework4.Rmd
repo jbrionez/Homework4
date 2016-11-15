@@ -1,7 +1,9 @@
 ---
 title: "Homework4"
 author: "Jacob Brionez"
-date: "October 24, 2016"
+date: "November 14, 2016"
+output: html_document
+---
 
 ## Introduction
   "This R markdown document is for completion of Homework 4"
@@ -13,9 +15,6 @@ date: "October 24, 2016"
   "Please also comment on the code and explain the results. "
 
 ```{r}
-
-setwd("C:/MSDS 6306-Fall2016/Homework4/Homework4")
-source("Homework4Source.R")
 n<-20
 nsim<-1000
 lotsa.medians<-numeric(nsim)
