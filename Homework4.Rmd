@@ -14,12 +14,82 @@ output: html_document
   "Correct code alone is insufficient. "
   "Please also comment on the code and explain the results. "
 
+Sample size 50 normal distribution
 ```{r}
-n<-20
-nsim<-1000
-lotsa.medians<-numeric(nsim)
-for(i in 1:nsim){
-  x<-rnorm(n)#random normal distribtion specification
-  lotsa.medians[i]<-median(x)
-}
+  x <- rnorm(50, 22, 5)
+  xbar <- mean(x)
+  xbar
+  
+  nsims <- 1000 #number of replications
+  bootnorm <- numeric(nsims)
+  for (i in 1:nsims) {
+    temp <- sample(x, 50, replace=TRUE) 
+    bootnorm[i] <- mean(temp)
+  } 
+  #for loop to generate 1000 bootstrap means for this sample of 50 observations
+  summary(bootnorm) 
+  hist(bootnorm) #to show is normally distribution
+  sd(x) #standard deviation of x
+  sd(bootnorm) #standard deviation of bootnorm
+  sd(x)/sqrt(50) #close to sd(bootnorm) to illustrate CLT
+```
+
+Sample size 25 normal distribution
+```{r}
+  x <- rnorm(25, 22, 5)
+  xbar <- mean(x)
+  xbar
+  
+  nsims <- 1000 #number of replications
+  bootnorm <- numeric(nsims)
+  for (i in 1:nsims) {
+    temp <- sample(x, 25, replace=TRUE) 
+    bootnorm[i] <- mean(temp)
+  } 
+  #for loop to generate 1000 bootstrap means for this sample of 50 observations
+  summary(bootnorm) 
+  hist(bootnorm) #to show is normally distribution
+  sd(x) #standard deviation of x
+  sd(bootnorm) #standard deviation of bootnorm
+  sd(x)/sqrt(25) #close to sd(bootnorm) to illustrate CLT
+```
+
+Sample size 50 exponential distribution
+```{r}
+  x <- rexp(50, 22)
+  xbar <- mean(x)
+  xbar
+  
+  nsims <- 1000 #number of replications
+  bootnorm <- numeric(nsims)
+  for (i in 1:nsims) {
+    temp <- sample(x, 50, replace=TRUE) 
+    bootnorm[i] <- mean(temp)
+  } 
+  #for loop to generate 1000 bootstrap means for this sample of 50 observations
+  summary(bootnorm) 
+  hist(bootnorm) #to show is normally distribution
+  sd(x) #standard deviation of x
+  sd(bootnorm) #standard deviation of bootnorm
+  sd(x)/sqrt(50) #close to sd(bootnorm) to illustrate CLT
+```
+
+Sample size 25 exponential distribution
+```{r}
+  x <- rexp(25, 22)
+  xbar <- mean(x)
+  xbar
+  
+  nsims <- 1000 #number of replications
+  bootnorm <- numeric(nsims)
+  for (i in 1:nsims) {
+    temp <- sample(x, 25, replace=TRUE) 
+    bootnorm[i] <- mean(temp)
+  } 
+  #for loop to generate 1000 bootstrap means for this sample of 50 observations
+  summary(bootnorm) 
+  hist(bootnorm) #to show is normally distribution
+  sd(x) #standard deviation of x
+  sd(bootnorm) #standard deviation of bootnorm
+  sd(x)/sqrt(25) #close to sd(bootnorm) to illustrate CLT
 ```
